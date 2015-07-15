@@ -1,0 +1,24 @@
+---
+data:
+  extends:
+    file: docker-compose-common.yml
+    service: data
+
+redis:
+  extends:
+    file: docker-compose-common.yml
+    service: redis
+  volumes_from:
+  - data
+
+wheatley:
+  extends:
+    file: docker-compose-common.yml
+    service: wheatley
+  links:
+  - "redis:redis"
+  volumes:
+  - .:/usr/src/app
+  stdin_open: true
+  tty: true
+  command: ["--adapter", "shell"]
