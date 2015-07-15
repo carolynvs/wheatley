@@ -13,11 +13,10 @@ redis:
   restart: always
 
 wheatley:
-  extends:
-    file: docker-compose-common.yml
-    service: wheatley
+  image: quay.io/smashwilson/wheatley
   links:
   - "redis:redis"
   environment:
+    REDIS_URL: redis://redis/
     HUBOT_SLACK_TOKEN:
   restart: always

@@ -12,9 +12,9 @@ redis:
   - data
 
 wheatley:
-  extends:
-    file: docker-compose-common.yml
-    service: wheatley
+  build: .
+  environment:
+    REDIS_URL: redis://redis/
   links:
   - "redis:redis"
   volumes:

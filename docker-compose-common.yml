@@ -8,8 +8,3 @@ data:
 redis:
   image: redis:3.0
   command: redis-server --appendonly yes
-
-wheatley:
-  build: .
-  environment:
-    REDIS_URL: redis://redis/
