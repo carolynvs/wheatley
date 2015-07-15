@@ -1,1 +1,12 @@
-["hubot-auth"]
+[
+  "hubot-diagnostics",
+  "hubot-help",
+  "hubot-google-images",
+  "hubot-google-translate",
+  "hubot-pugme",
+  "hubot-markov",
+  "hubot-maps",
+  "hubot-redis-brain",
+  "hubot-shipit",
+  "hubot-youtube"
+]

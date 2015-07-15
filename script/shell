@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -ueo pipefail
+
+ROOT=$(cd $(dirname $0)/.. && pwd)
+PROJECTNAME=$(basename ${ROOT})
+cd ${ROOT}
+
+docker-compose up -d
+exec docker attach ${PROJECTNAME}_wheatley_1

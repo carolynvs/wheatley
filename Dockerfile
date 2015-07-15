@@ -1,15 +1,18 @@
-FROM node:0.10.32
+FROM node:0.12
+MAINTAINER Ash Wilson <smashwilson@gmail.com>
 
-ADD . /srv/wheatley
+RUN npm install -g coffee-script
 
-RUN useradd --shell /bin/false wheatley
+RUN useradd wheatley
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-WORKDIR /srv/wheatley
-RUN chown -R wheatley:wheatley /srv/wheatley
-
-RUN npm install -g hubot coffee-script
-
-USER wheatley
+COPY package.json /usr/src/app/
 RUN npm install
+COPY . /usr/src/app
 
-CMD ["node_modules/.bin/hubot", "--name", "wheatley"]
+RUN chown -R wheatley:wheatley /usr/src/app
+USER wheatley
+
+ENTRYPOINT ["node_modules/.bin/hubot", "--name", "wheatley"]
+CMD ["--adapter", "slack"]

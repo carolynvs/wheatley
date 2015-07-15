@@ -1,0 +1,23 @@
+---
+data:
+  extends:
+    file: docker-compose-common.yml
+    service: data
+
+redis:
+  extends:
+    file: docker-compose-common.yml
+    service: redis
+  volumes_from:
+  - data
+  restart: always
+
+wheatley:
+  extends:
+    file: docker-compose-common.yml
+    service: wheatley
+  links:
+  - "redis:redis"
+  environment:
+    HUBOT_SLACK_TOKEN:
+  restart: always
