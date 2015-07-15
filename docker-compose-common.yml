@@ -3,7 +3,7 @@ data:
   image: redis:3.0
   volumes:
   - /data
-  command: true
+  command: "true"
 
 redis:
   image: redis:3.0
