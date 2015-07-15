@@ -16,7 +16,7 @@ cd ${ROOT}
 
 source ${ROOT}/env.sh
 
-COMPOSE=docker-compose --file ${ROOT}/docker-compose-production.yml
+COMPOSE="docker-compose --file ${ROOT}/docker-compose-production.yml"
 
 ${COMPOSE} build
 ${COMPOSE} up -d
