@@ -9,5 +9,5 @@ Developer Experience chat embetterment bot
 Install [docker](https://docs.docker.com/kitematic/) and [docker-compose](https://docs.docker.com/compose/install/), then run:
 
 ```bash
-bin/shell
+script/shell
 ```
