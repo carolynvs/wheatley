@@ -22,15 +22,10 @@ TIMEZONES = [
   "Europe/Berlin"
 ]
 
-SHORTHAND =
-  PDT: "America/Los_Angeles"
-  PST: "America/Los_Angeles"
-  CDT: "America/Chicago"
-  CST: "America/Chicago"
-  EST: "America/New_York"
-  EDT: "America/New_York"
-  CET: "Europe/Berlin"
-  CEST: "Europe/Berin"
+SHORTHAND = {}
+for tzName in TIMEZONES
+  for tzAbbr in moment.tz.zone(tzName).abbrs
+    SHORTHAND[tzAbbr] = tzName
 
 OUTPUT = "h:mma z"
 
